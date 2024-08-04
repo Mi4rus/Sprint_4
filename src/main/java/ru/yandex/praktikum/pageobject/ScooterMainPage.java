@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.PageObject;
+package ru.yandex.praktikum.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,11 +8,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ScooterMainPage {
+    private static final By FAQ = By.xpath(".//div[@class='Home_FAQ__3uVm4']");;
     private static final String SCOOTER_URL = "https://qa-scooter.praktikum-services.ru/";//Ссылка на сайт
 
     private final static By COOKIE_BUTTON = By.id("rcc-confirm-button");//Кнопка "да все привыкли" в окне куков
 
-    private final static By HEADER_ORDER_BUTTON = By.cssSelector("div.Header_Nav__AGCXC > button.Button_Button__ra12g");//Кнопка "Заказать" в хедере
+    private final static By HEADER_ORDER_BUTTON = By.xpath(".//button[@class='Button_Button__ra12g']");//Кнопка "Заказать" в хедере
+
 
     private final static By MIDDLE_ORDER_BUTTON = By.cssSelector("div.Home_FinishButton__1_cWm > button.Button_Middle__1CSJM");//Кнопка "Заказать" в блоке "Как это работает"
 
@@ -52,8 +54,45 @@ public class ScooterMainPage {
 
     private final WebDriver driver;
 
+
     public ScooterMainPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public static By getFaq(){
+        return FAQ;
+    }
+
+    public static By getQuestionAboutPrice() {
+        return QUESTION_ABOUT_PRICE;
+    }
+
+    public static By getQuestionAboutQuantity() {
+        return QUESTION_ABOUT_QUANTITY;
+    }
+
+    public static By getQuestionAboutTime() {
+        return QUESTION_ABOUT_TIME;
+    }
+
+    public static By getQuestionCancellation() {
+        return QUESTION_CANCELLATION;
+    }
+
+    public static By getQuestionCharger() {
+        return QUESTION_CHARGER;
+    }
+
+    public static By getQuestionExtendReturn() {
+        return QUESTION_EXTEND_RETURN;
+    }
+
+    public static By getQuestionMkad() {
+        return QUESTION_MKAD;
+    }
+
+    public static By getQuestionToday() {
+        return QUESTION_TODAY;
     }
 
     // Метод открытия страницы

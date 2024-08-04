@@ -2,14 +2,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.yandex.praktikum.PageObject.ScooterMainPage;
+import ru.yandex.praktikum.pageobject.ScooterMainPage;
 import java.time.Duration;
 import static org.junit.Assert.assertEquals;
+
 
 public class TestScooterMainPage {
     private ScooterMainPage objScooterMainPage;
@@ -24,13 +24,13 @@ public class TestScooterMainPage {
         objScooterMainPage.open();
         objScooterMainPage.waitForLoadPage();
         objScooterMainPage.clickCookieButton();
-        WebElement element = driver.findElement(By.cssSelector(".Home_FAQ__3uVm4"));
+        WebElement element = driver.findElement(ScooterMainPage.getFaq());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
     @Test
     public void checkFirstQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-0")); //Найти первый вопрос
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionAboutPrice()); //Найти первый вопрос
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);// Проскроллить до первого вопроса
         objScooterMainPage.clickPriceQuestion();//Нажать на первый вопрос
         String expected = "Сутки — 400 рублей. Оплата курьеру — наличными или картой."; //Ожидаемый ответ
@@ -41,7 +41,7 @@ public class TestScooterMainPage {
     //Остальные методы и шаги внутри метода аналогичны методу checkFirstQuestionAndAnswer();
     @Test
     public void checkSecondQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-1"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionAboutQuantity());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickQuantityQuestion();
         String expected = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
@@ -52,7 +52,7 @@ public class TestScooterMainPage {
 
     @Test
     public void checkThirdQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-2"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionAboutTime());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickTimeQuestion();
         String expected = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.";//ожидаемый ответ
@@ -63,7 +63,7 @@ public class TestScooterMainPage {
 
     @Test
     public void checkFourthQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-3"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionToday());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickTodayQuestion();
         String expected = "Только начиная с завтрашнего дня. Но скоро станем расторопнее.";
@@ -74,7 +74,7 @@ public class TestScooterMainPage {
 
     @Test
     public void checkFifthQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-4"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionExtendReturn());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickExtendReturnQuestion();
         String expected = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.";
@@ -85,7 +85,7 @@ public class TestScooterMainPage {
 
     @Test
     public void checkSixthQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-5"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionCharger());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickChargerQuestion();
         String expected = "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.";
@@ -96,7 +96,7 @@ public class TestScooterMainPage {
 
     @Test
     public void checkSeventhQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-6"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionCancellation());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickCancellationQuestion();
         String expected = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
@@ -107,7 +107,7 @@ public class TestScooterMainPage {
 
     @Test
     public void checkEighthQuestionAndAnswer() {
-        WebElement element = driver.findElement(By.id("accordion__heading-7"));
+        WebElement element = driver.findElement(ScooterMainPage.getQuestionMkad());
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         objScooterMainPage.clickMkadQuestion();
         String expected = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";

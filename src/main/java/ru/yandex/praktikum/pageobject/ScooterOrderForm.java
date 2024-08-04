@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.PageObject;
+package ru.yandex.praktikum.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class ScooterOrderForm {
     private final WebDriver driver;
 
+
     public ScooterOrderForm(WebDriver driver) {
         this.driver = driver;
     }
@@ -22,57 +23,61 @@ public class ScooterOrderForm {
     //
     private final static By COOKIE_BUTTON = By.id("rcc-confirm-button");//Кнопка "да все привыкли" в окне про куки
     //
-    private final static By HEADER_ORDER_BUTTON = By.cssSelector("div.Header_Nav__AGCXC > button.Button_Button__ra12g");//Кнопка "Заказать" в хедере
+    private final static By HEADER_ORDER_BUTTON = By.xpath(".//button[@class='Button_Button__ra12g']");//Кнопка "Заказать" в хедере
     //
     private final static By MIDDLE_ORDER_BUTTON = By.cssSelector("div.Home_FinishButton__1_cWm > button.Button_Middle__1CSJM");//Кнопка "Заказать" в блоке "Как это работает"
 
     //
-    private final static By NAME_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[1]/input");//Поле "Имя"
+    private final static By NAME_INPUT_FIELD = By.xpath(".//input[@placeholder='* Имя']");//Поле "Имя"
     //
-    private final static By SURNAME_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[2]/input");//Поле "Фамилия"
+    private final static By SURNAME_INPUT_FIELD = By.xpath(".//input[@placeholder='* Фамилия']");//Поле "Фамилия"
     //
-    private final static By ADDRESS_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[3]/input");//Поле "Адрес: куда привезти заказ"
+    private final static By ADDRESS_INPUT_FIELD = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");//Поле "Адрес: куда привезти заказ"
     //
-    private final static By METRO_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[4]/div/div/input");//Поле "Станция метро"
+    private final static By METRO_INPUT_FIELD = By.xpath(".//input[@placeholder='* Станция метро']");//Поле "Станция метро"
     //
-    private final static By PHONE_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[5]/input");//Поле "Телефон: на него позвонит курьер"
+    private final static By PHONE_INPUT_FIELD = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");//Поле "Телефон: на него позвонит курьер"
 
     //
-    private final static By ORDER_NEXT_BUTTON = By.cssSelector("div.Order_NextButton__1_rCA > button.Button_Middle__1CSJM");//Кнопка "Далее"
+    private final static By ORDER_NEXT_BUTTON = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Далее']");//Кнопка "Далее"
 
     //
-    private final static By WHEN_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[1]/div/div/input");//Поле "Когда привезти самокат"
+    private final static By WHEN_INPUT_FIELD = By.xpath(".//input[@placeholder='* Когда привезти самокат']");//Поле "Когда привезти самокат"
     //
-    private final static By TERM_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[2]/div/div[1]");//Поле "Срок аренды"
+    private final static By TERM_INPUT_FIELD = By.xpath(".//div[@class='Dropdown-placeholder' and text()= '* Срок аренды']");//Поле "Срок аренды"
     //
-    private final static By TERM_INPUT_OPTION1 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[1]");//Сутки в Поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION1 = By.xpath(".//div[@class='Dropdown-option' and text()= 'сутки']");//Сутки в Поле "Срок аренды"
     //
-    private final static By TERM_INPUT_OPTION2 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[2]");//Двое суток в поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION2 = By.xpath(".//div[@class='Dropdown-option' and text()= 'двое суток']");//Двое суток в поле "Срок аренды"
 
-    private final static By TERM_INPUT_OPTION3 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[3]");//Трое суток в Поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION3 = By.xpath(".//div[@class='Dropdown-option' and text()= 'трое суток']");//Трое суток в Поле "Срок аренды"
     //
-    private final static By TERM_INPUT_OPTION4 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[4]");//Четверо суток в Поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION4 = By.xpath(".//div[@class='Dropdown-option' and text()= 'четверо суток']");//Четверо суток в Поле "Срок аренды"
 
-    private final static By TERM_INPUT_OPTION5 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[5]");//Пять суток в Поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION5 = By.xpath(".//div[@class='Dropdown-option' and text()= 'пятеро суток']");//Пять суток в Поле "Срок аренды"
 
-    private final static By TERM_INPUT_OPTION6 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[6]");//Шесть суток в Поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION6 = By.xpath(".//div[@class='Dropdown-option' and text()= 'шестеро суток']");//Шесть суток в Поле "Срок аренды"
 
-    private final static By TERM_INPUT_OPTION7 = By.xpath(".//div[2]/div[2]/div[2]/div[2]/div[7]");//Семь суток в Поле "Срок аренды"
+    private final static By TERM_INPUT_OPTION7 = By.xpath(".//div[@class='Dropdown-option' and text()= 'семеро суток']");//Семь суток в Поле "Срок аренды"
 
     private final static By COLOR_INPUT_OPTION_GREY = By.id("grey");//Серый в Поле "Цвет самоката"
     //
     private final static By COLOR_INPUT_OPTION_BLACK = By.id("black");//Черный в Поле "Цвет самоката"
     //
-    private final static By COMMENT_INPUT_FIELD = By.xpath(".//div[2]/div[2]/div[4]/input");//Поле "Комментарий для курьера"
+    private final static By COMMENT_INPUT_FIELD = By.xpath(".//input[@placeholder='Комментарий для курьера']");//Поле "Комментарий для курьера"
 
     //
-    private final static By ORDER_BUTTON_FINAL = By.xpath(".//div[2]/div[3]/button[2]");//Кнопка "Заказать" для завершения
+    private final static By ORDER_BUTTON_FINAL = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']");//Кнопка "Заказать" для завершения
     //
-    private final static By CONFIRM_BUTTON = By.xpath(".//div[2]/div[5]/div[2]/button[2]");//Кнопка "Да" в окне подтверждения оформления заказа
+    private final static By CONFIRM_BUTTON = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']");//Кнопка "Да" в окне подтверждения оформления заказа
 
     //
-    private final static By PROCESSED_WINDOW = By.xpath(".//div[2]/div[5]/div[1]");//Окно "Заказ оформлен"
+    private final static By PROCESSED_WINDOW = By.xpath(".//div[@class='Order_ModalHeader__3FDaJ']");//Окно "Заказ оформлен"
 
+
+    public static By getMiddleOrderButton() {
+        return MIDDLE_ORDER_BUTTON;
+    }
 
     // Метод открытия сайта
     public ScooterOrderForm open() {
@@ -115,44 +120,44 @@ public class ScooterOrderForm {
     }
 
     // Метод ввода значения в поле "Имя"
-    public ScooterOrderForm inputName() {
+    public ScooterOrderForm inputName(String name) {
         driver.findElement(NAME_INPUT_FIELD).click();
-        driver.findElement(NAME_INPUT_FIELD).sendKeys("Михаил");
+        driver.findElement(NAME_INPUT_FIELD).sendKeys(name);
         return this;
     }
 
     // Метод ввода значения в поле "Имя"
-    public ScooterOrderForm inputNameWithSpaceCaps() {
+    public ScooterOrderForm inputNameWithSpaceCaps(String name) {
         driver.findElement(NAME_INPUT_FIELD).click();
-        driver.findElement(NAME_INPUT_FIELD).sendKeys("МИ ША");
+        driver.findElement(NAME_INPUT_FIELD).sendKeys(name);
         return this;
     }
 
     // Метод ввода значения в поле "Фамилия"
-    public ScooterOrderForm inputSurname() {
+    public ScooterOrderForm inputSurname(String surname) {
         driver.findElement(SURNAME_INPUT_FIELD).click();
-        driver.findElement(SURNAME_INPUT_FIELD).sendKeys("Колюшин");
+        driver.findElement(SURNAME_INPUT_FIELD).sendKeys(surname);
         return this;
     }
 
     // Метод ввода значения в поле "Фамилия"
-    public ScooterOrderForm inputSurnameCaps() {
+    public ScooterOrderForm inputSurnameCaps(String surname) {
         driver.findElement(SURNAME_INPUT_FIELD).click();
-        driver.findElement(SURNAME_INPUT_FIELD).sendKeys("КОЛЮШИН");
+        driver.findElement(SURNAME_INPUT_FIELD).sendKeys(surname);
         return this;
     }
 
     // Метод ввода значения в поле "Адрес: куда привезти заказ"
-    public ScooterOrderForm inputAddress() {
+    public ScooterOrderForm inputAddress(String address) {
         driver.findElement(ADDRESS_INPUT_FIELD).click();
-        driver.findElement(ADDRESS_INPUT_FIELD).sendKeys("Советская, 123");
+        driver.findElement(ADDRESS_INPUT_FIELD).sendKeys(address);
         return this;
     }
 
     // Метод ввода значения в поле "Адрес: куда привезти заказ"
-    public ScooterOrderForm inputAddressMinus() {
+    public ScooterOrderForm inputAddressMinus(String address) {
         driver.findElement(ADDRESS_INPUT_FIELD).click();
-        driver.findElement(ADDRESS_INPUT_FIELD).sendKeys("Советская-123");
+        driver.findElement(ADDRESS_INPUT_FIELD).sendKeys(address);
         return this;
     }
 
@@ -174,16 +179,16 @@ public class ScooterOrderForm {
     }
 
     // Метод ввода значения в поле "Телефон: на него позвонит курьер"
-    public ScooterOrderForm inputPhone() {
+    public ScooterOrderForm inputPhone(String phoneNumber) {
         driver.findElement(PHONE_INPUT_FIELD).click();
-        driver.findElement(PHONE_INPUT_FIELD).sendKeys("12345678901");
+        driver.findElement(PHONE_INPUT_FIELD).sendKeys(phoneNumber);
         return this;
     }
 
     // Метод ввода значения в поле "Телефон: на него позвонит курьер"
-    public ScooterOrderForm inputPhonePlus() {
+    public ScooterOrderForm inputPhonePlus(String phoneNumber) {
         driver.findElement(PHONE_INPUT_FIELD).click();
-        driver.findElement(PHONE_INPUT_FIELD).sendKeys("+12345678901");
+        driver.findElement(PHONE_INPUT_FIELD).sendKeys(phoneNumber);
         return this;
     }
 
@@ -244,9 +249,9 @@ public class ScooterOrderForm {
     }
 
     // Метод ввода значения в поле "Комментарий для курьера"
-    public ScooterOrderForm inputComment() {
+    public ScooterOrderForm inputComment(String comment) {
         driver.findElement(COMMENT_INPUT_FIELD).click();
-        driver.findElement(COMMENT_INPUT_FIELD).sendKeys("Позвонить, как подъедете");
+        driver.findElement(COMMENT_INPUT_FIELD).sendKeys(comment);
         return this;
     }
 

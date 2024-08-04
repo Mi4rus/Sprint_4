@@ -7,7 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import ru.yandex.praktikum.PageObject.ScooterOrderForm;
+import ru.yandex.praktikum.pageobject.ScooterOrderForm;
 
 public class TestScooterOrderForm {
     private WebDriver driver;
@@ -29,7 +29,7 @@ public class TestScooterOrderForm {
         // проверка наличия кнопки "Заказать" в хедере
         objScooterOrderForm.isHeaderOrderButtonPresent();
         //найти кнопку "Заказать" в блоке "Как это работает"
-        WebElement element = driver.findElement(By.cssSelector("div.Home_FinishButton__1_cWm > button.Button_Middle__1CSJM"));
+        WebElement element = driver.findElement(ScooterOrderForm.getMiddleOrderButton());
         //скролл до кнопки
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         // проверка наличия кнопки "Заказать" в блоке "Как это работает"
@@ -37,15 +37,15 @@ public class TestScooterOrderForm {
         // клик на "Заказать" в блоке "Как это работает"
         objScooterOrderForm.clickMiddleOrderButton();
         // ввод значения в Поле "Имя"
-        objScooterOrderForm.inputName();
+        objScooterOrderForm.inputName("Михаил");
         // ввод значения в Поле "Фамилия"
-        objScooterOrderForm.inputSurname();
+        objScooterOrderForm.inputSurname("Колюшин");
         // ввод значения в Поле "Адрес: куда привезти заказ"
-        objScooterOrderForm.inputAddress();
+        objScooterOrderForm.inputAddress("Советская, 123");
         // ввод значения в Поле "Станция метро"
         objScooterOrderForm.inputMetro();
         // ввод значения в Поле "Телефон: на него позвонит курьер"
-        objScooterOrderForm.inputPhone();
+        objScooterOrderForm.inputPhone("12345678901");
         // клик на кнопку "Далее"
         objScooterOrderForm.clickOrderNextButton();
         // ввод значения в Поле "Когда привезти самокат"
@@ -55,7 +55,7 @@ public class TestScooterOrderForm {
         // ввод значения в Поле "Цвет самоката"
         objScooterOrderForm.inputColor();
         // ввод значения в Поле "Комментарий для курьера"
-        objScooterOrderForm.inputComment();
+        objScooterOrderForm.inputComment("Позвоните, как подъедете");
         // клик на кнопку "Заказать" для завершения
         objScooterOrderForm.clickOrderButtonFinal();
         // клик на кнопку "Да" в окне подтверждения оформления заказа
@@ -71,15 +71,15 @@ public class TestScooterOrderForm {
         // клик на "Заказать" в хедере
         objScooterOrderForm.clickHeaderOrderButton();
         // ввод значения в Поле "Имя"
-        objScooterOrderForm.inputNameWithSpaceCaps();
+        objScooterOrderForm.inputNameWithSpaceCaps("МИ ША");
         // ввод значения в Поле "Фамилия"
-        objScooterOrderForm.inputSurnameCaps();
+        objScooterOrderForm.inputSurnameCaps("КОЛЮШИН");
         // ввод значения в Поле "Адрес: куда привезти заказ"
-        objScooterOrderForm.inputAddressMinus();
+        objScooterOrderForm.inputAddressMinus("Советская-123");
         // ввод значения в Поле "Станция метро"
         objScooterOrderForm.inputMetro2();
         // ввод значения в Поле "Телефон: на него позвонит курьер"
-        objScooterOrderForm.inputPhonePlus();
+        objScooterOrderForm.inputPhonePlus("+12345678901");
         // клик на кнопку "Далее"
         objScooterOrderForm.clickOrderNextButton();
         // ввод значения в Поле "Когда привезти самокат"
